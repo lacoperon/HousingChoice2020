@@ -1,3 +1,6 @@
+# Elliot's Housing Decision Stuff
+# Feel free to use this for whatever :)
+
 library(dplyr)
 library(readr)
 library(ggplot2)
@@ -9,6 +12,7 @@ unacceptable_states <- c("FL", "GA", "AZ", "United States", "MO", "MD", "NC",
                          "OK", "KY", "LA", "AL", "NM", "NE", "SC", "AR", "KS",
                          "ID", "IA", "MS", "TN")
 
+# Dataset from Zillow (used to get housing prices, fed into Google Sheet)
 prices_df <- read_csv("Metro_ZORI_AllHomesPlusMultifamily_SSA.csv") %>%
   select(RegionName, SizeRank,`2019-03`) %>%
   mutate(state=gsub(".*, ", "", RegionName)) %>%
@@ -19,20 +23,18 @@ prices_df <- read_csv("Metro_ZORI_AllHomesPlusMultifamily_SSA.csv") %>%
 # COVID-era numbers
 AVERAGE_RENT <- 3075 # Rent is actually 3075
 HAPPY_COW_HITS <- -2000
-PUBLIC_TRANSIT <- -500 # Also captured by `NEED_CAR`
+PUBLIC_TRANSIT <- -1000 # Also captured by `NEED_CAR`
 HIKE <- -400
 FRIENDS <- -400
 AUTOCRACY <- 1500 # i.e. moving to Hong Kong in particular, during autocratic decline
 MUM_INDEPENDENCE <- 3000 # Living w Mum (tend to argue), and independence therein
 FOREIGN <- 500
 NO_MOVE_REQUIRED <- -1000
-EAST_COAST <- -500
-CONNOR <- -500
+EAST_COAST <- -300
+CONNOR <- -300
 NEED_CAR <- 1000
 
-
-
-# Reads in Google Sheet
+# Reads in Google Sheet where I've annotated my values
 housing_df <- read_csv("cities_to_live_in.csv") %>%
   select(-`Misc Notes`, -`Tech Salary Diff`)
 
