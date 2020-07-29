@@ -19,7 +19,7 @@ prices_df <- read_csv("Metro_ZORI_AllHomesPlusMultifamily_SSA.csv") %>%
 # COVID-era numbers
 AVERAGE_RENT <- 3075 # Rent is actually 3075
 HAPPY_COW_HITS <- -2000
-PUBLIC_TRANSIT <- -1250
+PUBLIC_TRANSIT <- -500 # Also captured by `NEED_CAR`
 HIKE <- -400
 FRIENDS <- -400
 AUTOCRACY <- 1500 # i.e. moving to Hong Kong in particular, during autocratic decline
